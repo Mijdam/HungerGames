@@ -7,6 +7,7 @@ public class Contestant {
     int health;
     int attack;
     int defense;
+    boolean male;
     String name;
     Random rand;
 
@@ -45,6 +46,12 @@ public class Contestant {
     //Action that does nothing.
     void hide(){
         System.out.println(name + " hides until potential threats are gone.");
+    }
+
+    void kamikaze (Contestant victim){
+        System.out.println(name + " drags " + victim.name + " towards a ravine, killing them both.");
+        health -= 999;
+        victim.health -= 999;
     }
 
     void inflictDamage(Contestant victim){
