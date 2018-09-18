@@ -6,6 +6,6 @@ public class Main {
         GameController game = new GameController();
         game.createPlayers();
 
-        System.out.println(game.players.get(3).name);
+        System.out.println(game.players.get(0).name);
     }
 }
