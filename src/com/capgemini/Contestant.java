@@ -1,7 +1,5 @@
 package com.capgemini;
 
-import java.util.Random;
-
 public class Contestant {
 
     int health;
@@ -9,13 +7,7 @@ public class Contestant {
     int defense;
     boolean male;
     String name;
-    Random rand;
-
-    int getRandomNumber(){
-        rand = new Random();
-        int num = rand.nextInt(2);
-        return num;
-    }
+    Contestant enemy1;
 
     void pickAction(int action){
 
@@ -26,6 +18,15 @@ public class Contestant {
             case 1:
                 sharpen();
                 break;
+            case 2:
+                hide();
+                break;
+            case 3:
+                kamikaze(enemy1);
+                break;
+            case 4:
+                inflictDamage(enemy1);
+                break;
             default:
                 break;
         }
@@ -33,19 +34,19 @@ public class Contestant {
 
     //Action that allows contestants to heal.
     void rest(){
-        System.out.println(name + " takes a nap and restores 20 HP.");
+        System.out.println(name + " takes a nap and restores 20 HP.\n");
         health += 20;
     }
 
     // Action that raises attack.
     void sharpen(){
-        System.out.println(name + " sharpens his weapon and gains a +1 attack bonus.");
+        System.out.println(name + " sharpens his weapon and gains a +1 attack bonus.\n");
         attack += 1;
     }
 
     //Action that does nothing.
     void hide(){
-        System.out.println(name + " hides until potential threats are gone.");
+        System.out.println(name + " hides until potential threats are gone.\n");
     }
 
     void kamikaze (Contestant victim){
@@ -56,7 +57,7 @@ public class Contestant {
 
     void inflictDamage(Contestant victim){
         int damage = calculateDamage(victim);
-        System.out.println(name + " slashes at " + victim.name + " and inflicts " + damage + " damage.");
+        System.out.println(name + " slashes at " + victim.name + " and inflicts " + damage + " damage.\n");
         victim.health -= damage;
     }
 
