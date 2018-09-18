@@ -1,11 +1,34 @@
 package com.capgemini;
 
+import java.util.Random;
+
 public class Contestant {
 
     int health;
     int attack;
     int defense;
     String name;
+    Random rand;
+
+    int getRandomNumber(){
+        rand = new Random();
+        int num = rand.nextInt(2);
+        return num;
+    }
+
+    void pickAction(int action){
+
+        switch (action){
+            case 0:
+                rest();
+                break;
+            case 1:
+                sharpen();
+                break;
+            default:
+                break;
+        }
+    }
 
     void rest(){
         System.out.println(name + " takes a nap and restores 20 HP");
